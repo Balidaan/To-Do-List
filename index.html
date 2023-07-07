@@ -1,105 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-    .container{
-    padding: 10px;
-    border:1px solid black;
-    width: 40%;
-    margin-right: 450px;
-    margin-top: 50px;
-}
+      .container {
+        padding: 10px;
+        border: 1px solid black;
+        width: 40%;
+        margin-right: 450px;
+        margin-top: 50px;
+      }
 
-.container .input{
-    width: 90%;
-    height: 20px;
-}
-.container .btn{
-    width:50px;
-    height:25px;
-}
+      .container .input {
+        width: 90%;
+        height: 20px;
+      }
+      .container .btn {
+        width: 50px;
+        height: 25px;
+      }
 
-.container .ul{
-    list-style: none;
-    padding:0px;
-}
+      .container .ul {
+        list-style: none;
+        padding: 0px;
+      }
 
-.container ,li a{
-    float:right;
-    color:#000;
-    text-decoration: none;
-    font-weight: bold;
-}
-
+      .container,
+      li a {
+        float: right;
+        color: #000;
+        text-decoration: none;
+        font-weight: bold;
+      }
     </style>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div class="container">
-    <input type="text" id="input">
-    <button id="btn" onclick="addMore()">Add</button><br>
-    <span id="error"></span>
-    <ul id = "box"></ul>
+      <input type="text" id="input" />
+      <button id="btn" onclick="addMore()">Add</button><br />
+      <span id="error"></span>
+      <ul id="box"></ul>
     </div>
-
-</body>
-<script>
-function addMore(){
-    var input1 = document.getElementById("input").value;
-    var error1 = document.getElementById("error");
-
-    if(input1=="" || input1==" "){
-        error1.innerHTML="Please enter a value";
-        error1.style.color="red";
-    }
-
-    else{
-        let box = document.getElementById("box");
-        let li = document.createElement("li");
-        li.textContent=input1;
-        let pos=box.firstElementChild;
-        if(pos==null){
-            box.appendChild(li);
-        }
-        else{
-            box.insertBefore(li,pos);  
-        }
-        error1.innerHTML="";
-        
-       
-
-        let a = document.createElement("a");
-        a.textContent=" x";
-        a.href="javascript:void(0)";
-        a.className="remove";
-        li.appendChild(a);
-        
-    }
-    document.getElementById("input").value = "";
-   
-}  
-//handle enter key press
-function handleKeyDown(event) {
-  if (event.keyCode === 13) {
-    addMore();
-  }
-}
-var input1 = document.getElementById("input");
-input1.addEventListener("keydown", handleKeyDown);
-
-//remove btn
-let btn = document.querySelector("ul");
-btn.addEventListener("click",function(e){
-    let box = document.getElementById("box");  
-    let li = e.target.parentNode;
-    box.removeChild(li);   
-});
-
-</script>
-
+  </body>
+  <script src="./index.js"></script>
 </html>
